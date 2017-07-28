@@ -1,8 +1,14 @@
 <!--index.wxml-->
-<view class="container">
-    <view bindtap="bindViewTap" class="userinfo">
-        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view class="container dev">
+    <view class="zan-panel">
+            <view bindtap="bindViewTap" class="book-card zan-card">
+                <view class="zan-card__thumb">
+                    <image class="zan-card__img" mode="aspectFit" src="https://img3.doubanio.com/lpic/s7628151.jpg" background-size="cover"></image>
+                </view>
+                <view class="book-info zan-card__detail">
+                    <text class="book-text">油层物理</text>
+                </view>
+            </view>
     </view>
     <view class="usermotto">
         <text class="user-motto">{{motto}}</text>
