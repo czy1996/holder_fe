@@ -1,12 +1,40 @@
 <!--index.wxml-->
 <view class="container dev">
-    <view class="zan-panel">
-            <view bindtap="bindViewTap" class="book-card zan-card">
+    <view wx:for="{{books}}" wx:for-index="idx" wx:for-item="book" class="zan-panel">
+            <!--<view bindtap="bindViewTap" class="book-card zan-card">-->
+                <!--<view class="zan-card__thumb">-->
+                    <!--<image class="zan-card__img" mode="aspectFit" src="https://img3.doubanio.com/lpic/s7628151.jpg" background-size="cover"></image>-->
+                <!--</view>-->
+                <!--<view class="book-title zan-card__detail">-->
+                    <!--<view class="zan-card__detail-row">-->
+                        <!--<view class="zan-card__right-col">￥ 12</view>-->
+                        <!--<view class="zan-card__left-col zan-ellipsis">油层物理</view>-->
+                    <!--</view>-->
+                    <!--<view class="zan-card__detail-row">-->
+                        <!--<view class="zan-card__right-col zan-c-gray-dark">石油工业出版社</view>-->
+                        <!--<view class="zan-card__left-col zan-ellipsis&#45;&#45;l2 zan-c-gray-dark">暂无简介拉萨的科技股份垃圾啊是垃圾收到了</view>-->
+                    <!--</view>-->
+                    <!--<view class="zan-card__detail-row">-->
+                        <!--<view class="zan-card__left-col">库存： </view>-->
+                    <!--</view>-->
+                <!--</view>-->
+            <!--</view>-->
+        <view bindtap="bindViewTap" class="book-card zan-card">
                 <view class="zan-card__thumb">
-                    <image class="zan-card__img" mode="aspectFit" src="https://img3.doubanio.com/lpic/s7628151.jpg" background-size="cover"></image>
+                    <image class="zan-card__img" mode="aspectFit" src="{{book.thumb}}" background-size="cover"></image>
                 </view>
-                <view class="book-info zan-card__detail">
-                    <text class="book-text">油层物理</text>
+                <view class="book-title zan-card__detail">
+                    <view class="zan-card__detail-row">
+                        <view class="zan-card__right-col">￥ 12</view>
+                        <view class="zan-card__left-col zan-ellipsis">{{ book.title }}</view>
+                    </view>
+                    <view class="zan-card__detail-row">
+                        <view class="zan-card__right-col zan-c-gray-dark">{{ book.publisher}}</view>
+                        <view class="zan-card__left-col zan-ellipsis--l2 zan-c-gray-dark">{{ book.description}}</view>
+                    </view>
+                    <view class="zan-card__detail-row">
+                        <view class="zan-card__left-col">库存: {{ book.inventory }}</view>
+                    </view>
                 </view>
             </view>
     </view>
