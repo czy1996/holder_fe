@@ -1,5 +1,8 @@
 /**app.wxss**/
 @import "dist/index.wxss";
+@import "style/weui.wxss";
+@import 'wux/components/wux.wxss';
+
 /*.container {*/
   /*height: 100%;*/
   /*display: flex;*/

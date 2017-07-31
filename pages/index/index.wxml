@@ -1,42 +1,76 @@
 <!--index.wxml-->
+<import src="../../dist/tab/index.wxml"/>
+<import src="../../wux/components/button/button.wxml" />
+
+<template is="button" data="{{ ...$wux.button.br }}"/>
+
 <view class="container dev">
-    <view wx:for="{{books}}" wx:for-index="idx" wx:for-item="book" class="zan-panel">
-            <!--<view bindtap="bindViewTap" class="book-card zan-card">-->
-                <!--<view class="zan-card__thumb">-->
-                    <!--<image class="zan-card__img" mode="aspectFit" src="https://img3.doubanio.com/lpic/s7628151.jpg" background-size="cover"></image>-->
-                <!--</view>-->
-                <!--<view class="book-title zan-card__detail">-->
-                    <!--<view class="zan-card__detail-row">-->
-                        <!--<view class="zan-card__right-col">￥ 12</view>-->
-                        <!--<view class="zan-card__left-col zan-ellipsis">油层物理</view>-->
-                    <!--</view>-->
-                    <!--<view class="zan-card__detail-row">-->
-                        <!--<view class="zan-card__right-col zan-c-gray-dark">石油工业出版社</view>-->
-                        <!--<view class="zan-card__left-col zan-ellipsis&#45;&#45;l2 zan-c-gray-dark">暂无简介拉萨的科技股份垃圾啊是垃圾收到了</view>-->
-                    <!--</view>-->
-                    <!--<view class="zan-card__detail-row">-->
-                        <!--<view class="zan-card__left-col">库存： </view>-->
-                    <!--</view>-->
-                <!--</view>-->
-            <!--</view>-->
-        <view bindtap="bindViewTap" class="book-card zan-card">
-                <view class="zan-card__thumb">
-                    <image class="zan-card__img" mode="aspectFit" src="{{book.thumb}}" background-size="cover"></image>
+    <view class="fixed">
+        <view class="page__bd">
+            <view class="bar weui-search-bar">
+                <view class="weui-search-bar__form">
+                    <view class="input weui-search-bar__box">
+                        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}"
+                               focus="{{inputShowed}}" bindinput="inputTyping" confirm-type="search"/>
+                        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                            <icon type="clear" size="14"></icon>
+                        </view>
+                    </view>
+                    <label class="input weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                        <icon class="weui-icon-search" type="search" size="14"></icon>
+                        <view class="weui-search-bar__text">搜索</view>
+                    </label>
                 </view>
-                <view class="book-title zan-card__detail">
-                    <view class="zan-card__detail-row">
-                        <view class="zan-card__right-col">￥ 12</view>
-                        <view class="zan-card__left-col zan-ellipsis">{{ book.title }}</view>
+                <view class="weui-search-bar__cancel-btn btn-color" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+            </view>
+            <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+                <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                    <view class="weui-cell__bd">
+                        <view>实时搜索文本</view>
                     </view>
-                    <view class="zan-card__detail-row">
-                        <view class="zan-card__right-col zan-c-gray-dark">{{ book.publisher}}</view>
-                        <view class="zan-card__left-col zan-ellipsis--l2 zan-c-gray-dark">{{ book.description}}</view>
+                </navigator>
+                <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                    <view class="weui-cell__bd">
+                        <view>实时搜索文本</view>
                     </view>
-                    <view class="zan-card__detail-row">
-                        <view class="zan-card__left-col">库存: {{ book.inventory }}</view>
+                </navigator>
+                <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                    <view class="weui-cell__bd">
+                        <view>实时搜索文本</view>
                     </view>
+                </navigator>
+                <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                    <view class="weui-cell__bd">
+                        <view>实时搜索文本</view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <view style="margin-bottom: 10px">
+            <template is="zan-tab" data="{{tab: tab, componentId: 'tab'}}"></template>
+        </view>
+    </view>
+    <view style="margin-bottom: 206rpx"></view>
+    <view class="cards-container">
+        <view bindtap="bindViewTap" class="book-card zan-card" wx:for="{{books}}" wx:for-index="idx" wx:for-item="book">
+            <view class="zan-card__thumb">
+                <image class="zan-card__img" mode="aspectFit" src="{{book.thumb}}" background-size="cover"></image>
+            </view>
+            <view class="book-title zan-card__detail">
+                <view class="zan-card__detail-row">
+                    <view class="price zan-card__right-col">原价 {{book.first_price}}</view>
+                    <view class="zan-card__left-col zan-ellipsis">{{ book.title }}</view>
+                </view>
+                <view class="zan-card__detail-row">
+                    <view class="zan-card__right-col zan-c-gray-dark">{{ book.publisher}}</view>
+                    <view class="zan-card__left-col zan-ellipsis--l2 zan-c-gray-dark">{{ book.description}}</view>
+                </view>
+                <view class="zan-card__detail-row">
+                    <view class="zan-card__left-col">库存: {{ book.inventory }}</view>
                 </view>
             </view>
+        </view>
     </view>
     <view class="usermotto">
         <text class="user-motto">{{motto}}</text>

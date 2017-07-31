@@ -15,6 +15,7 @@
 
 .book-card {
   background-color: #fff;
+  margin-bottom: 5rpx;
 }
 
 .userinfo-nickname {
@@ -31,4 +32,33 @@
 
 .book-info {
   align-self: flex-start;
+}
+
+.btn-color {
+  color: #ff7f00;
+}
+
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}
+
+.fixed {
+  position: fixed;
+  z-index: 999;
+}
+
+.input {
+  background-color: #efeff4;
+}
+
+.bar {
+  background: #fff;
+    border-bottom: none;
 }
