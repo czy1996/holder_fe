@@ -1,7 +1,5 @@
 /**index.wxss**/
-.btn-color {
-  color: #ff7f00;
-}
+
 
 .searchbar-result{
     margin-top: 0;
