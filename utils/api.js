@@ -32,6 +32,11 @@ class Api {
         })
     }
 
+    getById(id, callback){
+        var path = `/${id}`
+        this.get(path, callback)
+    }
+
     all(callback) {
         var path = '/all'
         this.get(path, callback)

@@ -1,39 +1,4 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  /*flex-direction: column;*/
-  align-items: center;
-}
-
-.book-cover {
-  width: 110rpx;
-  height: 159rpx;
-  margin: 10rpx;
-  /*border-radius: 50%;*/
-
-}
-
-.book-card {
-  background-color: #fff;
-  margin-bottom: 5rpx;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
-
-.book-text {
-  font-size: small;
-}
-
-.book-info {
-  align-self: flex-start;
-}
-
 .btn-color {
   color: #ff7f00;
 }
@@ -62,3 +27,4 @@
   background: #fff;
     border-bottom: none;
 }
+

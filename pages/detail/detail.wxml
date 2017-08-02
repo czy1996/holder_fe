@@ -1,0 +1,29 @@
+<view class="container log-list">
+      <view class="card">
+        <view class="book-card zan-card">
+            <view class="zan-card__thumb">
+                <image class="zan-card__img" mode="aspectFit" src="{{book.thumb}}" background-size="cover"></image>
+            </view>
+            <view class="book-title zan-card__detail">
+                <view class="zan-card__detail-row">
+                    <!--<view class="price zan-card__right-col">原价 {{book.first_price}}</view>-->
+                    <view class="zan-font-16 zan-card__left-col zan-ellipsis">{{ book.title }}</view>
+                </view>
+                <view class="zan-card__detail-row">
+                    <!--<view class="zan-card__right-col zan-c-gray-dark">{{ book.publisher}}</view>-->
+                    <view class="zan-card__left-col zan-ellipsis--l2 zan-c-gray-dark">{{ book.author}} /
+                        {{book.publisher}}
+                    </view>
+                </view>
+                <view class="zan-card__detail-row">
+                    <view class="crossed zan-c-gray zan-card__left-col">原价 {{ book.first_price }}</view>
+                </view>
+                <view class="zan-card__detail-row">
+                    <view class="price zan-card__right-col">库存 {{book.inventory}}</view>
+                    <view class="zan-c-red zan-font-18 zan-card__left-col">￥ {{ book.second_price }}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+</view>

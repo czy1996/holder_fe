@@ -41,3 +41,12 @@
 .dev {
     outline: red dashed 1rpx;
 }
+
+.crossed {
+  text-decoration: line-through;
+}
+
+.book-card {
+  background-color: #fff;
+  margin-bottom: 5rpx;
+}

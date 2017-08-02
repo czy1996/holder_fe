@@ -5,7 +5,7 @@ var app = getApp()
 var util = require('../../utils/util.js')
 var {Api} = require('../../utils/api.js')
 
-import { $wuxButton } from '../../wux/components/wux'
+import {$wuxButton} from '../../wux/components/wux'
 
 var book = new Api('book')
 
@@ -45,9 +45,10 @@ Page({
         opened: !1,
     },
     //事件处理函数
-    bindViewTap: function () {
+    bindViewTap: function (event) {
+        var target = event.currentTarget
         wx.navigateTo({
-            url: '../logs/logs'
+            url: `../detail/detail?id=${target.dataset.id}`
         })
     },
     onLoad: function () {
