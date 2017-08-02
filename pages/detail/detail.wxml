@@ -1,5 +1,5 @@
 <view class="container log-list">
-      <view class="card">
+    <view class="card">
         <view class="book-card zan-card">
             <view class="zan-card__thumb">
                 <image class="zan-card__img" mode="aspectFit" src="{{book.thumb}}" background-size="cover"></image>
@@ -24,6 +24,16 @@
                 </view>
             </view>
         </view>
+    </view>
+    <view class="description zan-panel">
+        <view class="zan-cell">简介</view>
+        <view class="zan-cell">{{book.description}}</view>
+
+    </view>
+    <view class="fixed buttons zan-panel">
+        <!--<button class="zan-btn zan-btn&#45;&#45;large zan-btn&#45;&#45;primary">确认付款</button>-->
+        <!--<button class="zan-btn zan-btn&#45;&#45;large zan-btn&#45;&#45;warn">立即购买</button>-->
+        <button class="zan-btn zan-btn--large zan-btn--danger">立即购买</button>
     </view>
 
 </view>

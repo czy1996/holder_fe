@@ -1,6 +1,6 @@
 //app.js
 var util = require('utils/util.js')
-var testUrl = "http://localhost:5000"
+var testUrl = util.api
 
 App({
     onLaunch: function () {

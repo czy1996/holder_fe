@@ -18,6 +18,7 @@
   overflow: hidden;
   min-height: 100vh;
   box-sizing: border-box;
+  positon: relative;
 }
 .container::before {
   position: fixed;
@@ -49,4 +50,9 @@
 .book-card {
   background-color: #fff;
   margin-bottom: 5rpx;
+}
+
+.fixed {
+  position: fixed;
+  z-index: 999;
 }
