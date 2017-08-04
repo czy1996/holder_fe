@@ -30,10 +30,19 @@
         <view class="zan-cell">{{book.description}}</view>
 
     </view>
+
+    <!--<view class="zan-panel">-->
+    <!--<view class="zan-cell zan-cell&#45;&#45;access">-->
+    <!--<view class="zan-cell__bd">收货信息</view>-->
+    <!--<view class="zan-cell__ft">修改</view>-->
+    <!--</view>-->
+    <!--</view>-->
+
     <view class="fixed buttons zan-panel">
         <!--<button class="zan-btn zan-btn&#45;&#45;large zan-btn&#45;&#45;primary">确认付款</button>-->
         <!--<button class="zan-btn zan-btn&#45;&#45;large zan-btn&#45;&#45;warn">立即购买</button>-->
-        <button class="zan-btn zan-btn--large zan-btn--danger">立即购买</button>
+        <button class="zan-btn zan-btn--large zan-btn--warn" bindtap="addCart">加入购物车</button>
+        <button class="zan-btn zan-btn--large zan-btn--danger" bindtap="buyNow">立即购买</button>
     </view>
 
 </view>

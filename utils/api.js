@@ -1,9 +1,13 @@
 var url = require('util.js').api
 
 var ajax = function (method, path, data, callback) {
+    var session_id = wx.getStorageSync('session_id');
     wx.request({
         url: path,
         data: data,
+        header: {
+            'Session_id': session_id
+        },
         success: res => {
             callback(res.data)
         }
@@ -32,7 +36,7 @@ class Api {
         })
     }
 
-    getById(id, callback){
+    getById(id, callback) {
         var path = `/${id}`
         this.get(path, callback)
     }
