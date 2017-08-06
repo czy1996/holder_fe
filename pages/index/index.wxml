@@ -54,8 +54,8 @@
     </view>
     <view style="margin-bottom: 206rpx"></view>
     <view class="cards-container">
-        <view bindtap="bindViewTap" class="book-card zan-card" wx:for="{{books}}" wx:for-index="id" wx:for-item="book"
-              data-id="{{book.id}}">
+        <view bindtap="bindViewTap" class="book-card zan-card" wx:for="{{books}}" wx:for-index="idx" wx:for-item="book"
+              data-id="{{book.id}}" wx:key="id">
             <view class="zan-card__thumb">
                 <image class="zan-card__img" mode="aspectFit" src="{{book.thumb}}" background-size="cover"></image>
             </view>

@@ -33,5 +33,11 @@ Page({
                 })
             }
         })
+    },
+    
+    toCart: function () {
+        wx.navigateTo({
+          url: '/pages/cart/cart'
+        })
     }
 })

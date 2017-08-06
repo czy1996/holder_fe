@@ -71,6 +71,11 @@ class Cart extends Api {
         var path = '/addCart/' + id
         this.get(path, callback)
     }
+
+    getCart(callback) {
+        var path = '/getCart'
+        this.get(path, callback)
+    }
 }
 
 module.exports = {
