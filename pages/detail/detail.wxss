@@ -6,3 +6,8 @@
     width: 100%;
     bottom: 0;
 }
+
+.btn-cart {
+    display: inline-block;
+    width: 50%;
+}
