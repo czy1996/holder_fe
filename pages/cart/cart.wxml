@@ -25,7 +25,8 @@
                     <view class="price zan-card__right-col">
                         库存 {{book.inventory}}
                         <view class="quantity">
-                            <template is="zan-quantity" data="{{ quantity: book.quantity, min: 1, max: 5, componentId: idx, size: 'small'}}"/>
+                            <template is="zan-quantity"
+                                      data="{{ quantity: book.quantity, min: 1, max: 5, componentId: idx, size: 'small'}}"/>
 
                         </view>
 
@@ -49,7 +50,7 @@
         <!--<button class="zan-btn zan-btn&#45;&#45;large zan-btn&#45;&#45;warn">立即购买</button>-->
         <!--<button class="btn-cart zan-btn zan-btn&#45;&#45;large zan-btn&#45;&#45;primary" bindtap="toCart">查看购物车</button>-->
         <!--<button class="btn-cart zan-btn zan-btn&#45;&#45;large zan-btn&#45;&#45;warn" bindtap="addCart">加入购物车</button>-->
-        <button class="zan-btn zan-btn--large zan-btn--danger" bindtap="buyNow">提交订单</button>
+        <button class="zan-btn zan-btn--large zan-btn--danger" bindtap="submitOrder">提交订单</button>
     </view>
 
 </view>

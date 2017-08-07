@@ -5,7 +5,7 @@
 var {log} = require('../../utils/util.js')
 var {Api, Cart} = require('../../utils/api.js')
 var Book = new Api('book')
-var Cart_api = new Cart()
+var cart = new Cart()
 
 
 Page({
@@ -22,7 +22,7 @@ Page({
     },
 
     addCart: function () {
-        Cart_api.add(this.data.book.id, (data) => {
+        cart.add(this.data.book.id, (data) => {
             log('add cart', data)
             if (data) {
                 log('toast', this.showZanToast)
@@ -34,10 +34,20 @@ Page({
             }
         })
     },
-    
+
     toCart: function () {
         wx.navigateTo({
-          url: '/pages/cart/cart'
+            url: '/pages/cart/cart'
+        })
+    },
+
+    buyNow: function () {
+        cart.add(this.data.book.id, data => {
+            if (data) {
+                wx.navigateTo({
+                    url: '/pages/cart/cart'
+                })
+            }
         })
     }
 })

@@ -5,6 +5,7 @@ var ajax = function (method, path, data, callback) {
     wx.request({
         url: path,
         data: data,
+        method: method,
         header: {
             'Session_id': session_id
         },
@@ -75,6 +76,11 @@ class Cart extends Api {
     getCart(callback) {
         var path = '/getCart'
         this.get(path, callback)
+    }
+
+    updateCart(data, callback) {
+        var path = '/updateCart'
+        this.post(path, data, callback)
     }
 }
 

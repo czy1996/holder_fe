@@ -8,7 +8,6 @@ var cart = new Cart()
 var Zan = require('../../dist/index');
 
 
-
 Page(Object.assign({}, Zan.Quantity, {
     data: {
         quantity: {
@@ -23,6 +22,17 @@ Page(Object.assign({}, Zan.Quantity, {
             this.setData({
                 books: books
             })
+        })
+    },
+
+    onUnload: function () {
+        var books = this.data.books
+        var data = {}
+        for (var i = 0; i < books.length; i++) {
+            data[String(books[i].id)] = books[i].quantity
+        }
+        cart.updateCart(data, data => {
+            log(data)
         })
     },
 
