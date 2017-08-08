@@ -36,7 +36,7 @@ Page({
     },
 
     toCart: function () {
-        wx.navigateTo({
+        wx.redirectTo({
             url: '/pages/cart/cart'
         })
     },
@@ -44,7 +44,7 @@ Page({
     buyNow: function () {
         cart.add(this.data.book.id, data => {
             if (data) {
-                wx.navigateTo({
+                wx.redirectTo({
                     url: '/pages/cart/cart'
                 })
             }

@@ -20,12 +20,16 @@ Page(Object.assign({}, Zan.Quantity, {
     onLoad: function () {
         cart.getCart(books => {
             this.setData({
-                books: books
+                books: books // TODO check max
             })
         })
     },
 
     onUnload: function () {
+        this.updateCart()
+    },
+
+    updateCart: function () {
         var books = this.data.books
         var data = {}
         for (var i = 0; i < books.length; i++) {
@@ -41,6 +45,13 @@ Page(Object.assign({}, Zan.Quantity, {
         var quantity = e.quantity
         this.setData({
             [`books[${id}].quantity`]: quantity
+        })
+    },
+
+    submitOrder(e) {
+        this.updateCart()
+        cart.closeCart(data => {
+            log(close, data)
         })
     }
 }))

@@ -82,6 +82,11 @@ class Cart extends Api {
         var path = '/updateCart'
         this.post(path, data, callback)
     }
+
+    closeCart(callback) {
+        var path = '/closeCart'
+        this.get(path, callback)
+    }
 }
 
 module.exports = {
