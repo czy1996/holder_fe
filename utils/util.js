@@ -24,5 +24,5 @@ var testApi = 'http://123.206.65.14:5000'
 module.exports = {
     formatTime: formatTime,
     log: log,
-    api: localApi
+    api: testApi
 }

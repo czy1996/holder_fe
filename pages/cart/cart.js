@@ -51,7 +51,10 @@ Page(Object.assign({}, Zan.Quantity, {
     submitOrder(e) {
         this.updateCart()
         cart.closeCart(data => {
-            log(close, data)
+            log('close', data)
+            wx.redirectTo({
+              url: '/pages/history/history'
+            })
         })
     }
 }))
