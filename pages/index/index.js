@@ -83,7 +83,7 @@ Page({
                     icon: "",
                 },
                 {
-                    label: 'View on Demo',
+                    label: '历史订单',
                     icon: "",
                 }
             ],
@@ -97,8 +97,8 @@ Page({
                     url: '/pages/info/index'
                 })
 
-                index === 2 && wx.switchTab({
-                    url: '/pages/index/index'
+                index === 2 && wx.navigateTo({
+                    url: '/pages/history/history'
                 })
 
                 return true

@@ -89,8 +89,20 @@ class Cart extends Api {
     }
 }
 
+class Order extends Api {
+    constructor() {
+        super('user')
+    }
+
+    all(callback) {
+        var path = '/getOrders'
+        this.get(path, callback)
+    }
+}
+
 module.exports = {
     ajax: ajax,
     Api: Api,
-    Cart: Cart
+    Cart: Cart,
+    Order: Order
 }
