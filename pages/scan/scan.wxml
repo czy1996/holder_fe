@@ -1,5 +1,54 @@
-<view class="container">
-    <view>
-        <button class="vertical-center zan-btn zan-btn--warn" bindtap="scan">扫码卖书</button>
+<import src="/dist/quantity/index.wxml"/>
+
+<view class="container log-list">
+    <view class="card">
+        <view bindtap="bindViewTap" class="book-card zan-card" wx:for="{{books}}" wx:for-index="idx" wx:for-item="book"
+              data-id="{{book.id}}" wx:key="id">
+            <view class="zan-card__thumb">
+                <image class="zan-card__img" mode="aspectFit" src="{{book.thumb}}" background-size="cover"></image>
+            </view>
+            <view class="book-title zan-card__detail">
+                <view class="zan-card__detail-row">
+                    <!--<view class="price zan-card__right-col">原价 {{book.first_price}}</view>-->
+                    <view class="zan-font-16 zan-card__left-col zan-ellipsis">{{ book.title }}</view>
+                </view>
+                <view class="zan-card__detail-row">
+                    <!--<view class="zan-card__right-col zan-c-gray-dark">{{ book.publisher}}</view>-->
+                    <view class="zan-card__left-col zan-ellipsis--l2 zan-c-gray-dark">{{ book.author}} /
+                        {{book.publisher}}
+                    </view>
+                </view>
+                <view class="zan-card__detail-row">
+
+                </view>
+
+                <view class="zan-card__detail-row">
+                    卖出数量
+                    <view class="price zan-card__right-col">
+                        <view class="quantity">
+                            <template is="zan-quantity"
+                                      data="{{ quantity: book.quantity, min: 0, max: 5, componentId: idx, size: 'small'}}"/>
+
+                        </view>
+
+                    </view>
+                </view>
+            </view>
+        </view>
     </view>
+
+
+    <!--<view class="zan-panel">-->
+    <!--<view class="zan-cell zan-cell&#45;&#45;access">-->
+    <!--<view class="zan-cell__bd">收货信息</view>-->
+    <!--<view class="zan-cell__ft">修改</view>-->
+    <!--</view>-->
+    <!--</view>-->
+
+    <view class="fixed buttons zan-panel">
+        <button class="zan-btn zan-btn--large zan-btn--warn" bindtap="scan">扫码添加</button>
+
+        <button class="zan-btn zan-btn--large zan-btn--danger" bindtap="submitOrder">提交</button>
+    </view>
+
 </view>

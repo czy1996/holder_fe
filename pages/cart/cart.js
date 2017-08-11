@@ -5,7 +5,7 @@ var {log} = require('../../utils/util.js')
 var {Api, Cart} = require('../../utils/api.js')
 var Book = new Api('book')
 var cart = new Cart()
-var Zan = require('../../dist/index');
+var Zan = require('../../dist/index')
 
 
 Page(Object.assign({}, Zan.Quantity, {

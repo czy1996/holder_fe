@@ -109,6 +109,6 @@ function isOddNumber(value) {
 module.exports = {
     formatTime: formatTime,
     log: log,
-    api: localApi,
+    api: testApi,
     isValidISBN: isValidISBN,
 }

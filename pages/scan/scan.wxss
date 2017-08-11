@@ -1,14 +1,17 @@
-.center-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card {
+    margin-top: 10px;
 }
 
-.vertical-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0 auto;
-    width: 70%;
+.buttons {
+    width: 100%;
+    bottom: 0;
+}
+
+.btn-cart {
+    display: inline-block;
+    width: 50%;
+}
+
+.quantity {
+    display: inline-block;
 }

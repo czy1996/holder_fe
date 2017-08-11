@@ -3,9 +3,9 @@
  */
 //
 var {log} = require('../../utils/util.js')
-var {Api, Cart} = require('../../utils/api.js')
+var {Api, Sells} = require('../../utils/api.js')
 var book = new Api('book')
-var cart = new Cart()
+var sells = new Sells()
 
 
 Page({
@@ -23,12 +23,10 @@ Page({
 
 
     sellNow: function () {
-        cart.add(this.data.book.id, data => {
-            if (data) {
-                wx.redirectTo({
-                    url: '/pages/cart/cart'
-                })
-            }
+        sells.add(this.data.book.id, data => {
+            wx.redirectTo({
+              url: '/pages/scan/scan'
+            })
         })
     }
 })
