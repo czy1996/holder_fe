@@ -4,6 +4,7 @@ var app = getApp()
 
 var util = require('../../utils/util.js')
 var {Api} = require('../../utils/api.js')
+var Zan = require('../../dist/index')
 
 import {$wuxButton} from '../../wux/components/wux'
 
@@ -11,9 +12,8 @@ var book = new Api('book')
 
 console.log(util)
 
-Page({
+Page(Object.assign({}, Zan.Tab, {
     data: {
-        motto: 'Hello World',
         books: {},
         inputShowed: false,
         inputVal: "",
@@ -131,5 +131,14 @@ Page({
         this.setData({
             inputVal: e.detail.value
         });
+    },
+
+    handleZanTabChange(e) {
+        var componentId = e.componentId;
+        var selectedId = e.selectedId;
+
+        this.setData({
+            [`${componentId}.selectedId`]: selectedId
+        });
     }
-})
+}))
