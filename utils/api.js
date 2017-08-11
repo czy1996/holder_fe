@@ -126,10 +126,22 @@ class Sells extends Api {
     }
 }
 
+class User extends Api {
+    constructor() {
+        super('user')
+    }
+
+    info(callback) {
+        var path = '/info'
+        this.get(path, callback)
+    }
+}
+
 module.exports = {
     ajax: ajax,
     Api: Api,
     Cart: Cart,
     Order: Order,
-    Sells: Sells
+    Sells: Sells,
+    User: User
 }

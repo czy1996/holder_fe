@@ -53,6 +53,11 @@ Page(Object.assign({}, Zan.Tab, {
     },
     onLoad: function () {
         console.log('onLoad')
+
+        this.initButton()
+    },
+
+    onShow() {
         var that = this
         //调用应用实例的方法获取全局数据
         book.all(data => {
@@ -61,7 +66,6 @@ Page(Object.assign({}, Zan.Tab, {
                 books: data
             })
         })
-        this.initButton()
     },
 
     initButton(position = 'bottomRight') {

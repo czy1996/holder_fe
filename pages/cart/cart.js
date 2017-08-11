@@ -2,7 +2,8 @@
  * Created by nicai on 2017/8/6.
  */
 var {log} = require('../../utils/util.js')
-var {Api, Cart} = require('../../utils/api.js')
+var {Api, Cart, User} = require('../../utils/api.js')
+var user  = new User()
 var Book = new Api('book')
 var cart = new Cart()
 var Zan = require('../../dist/index')
@@ -49,6 +50,9 @@ Page(Object.assign({}, Zan.Quantity, {
     },
 
     submitOrder(e) {
+        user.info(data => {
+            log(data)
+        })
         this.updateCart()
         var books = this.data.books
         for (var i = 0; i < books.length; i++) {
