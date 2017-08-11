@@ -50,10 +50,14 @@ Page(Object.assign({}, Zan.Quantity, {
 
     submitOrder(e) {
         this.updateCart()
+        var books = this.data.books
+        for (var i = 0; i < books.length; i++) {
+            books[i].quantity = 0
+        }
         cart.closeCart(data => {
             log('close', data)
             wx.redirectTo({
-              url: '/pages/history/history'
+                url: '/pages/history/history'
             })
         })
     }

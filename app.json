@@ -6,7 +6,8 @@
     "pages/info/index",
     "pages/cart/cart",
     "pages/history/history",
-    "pages/scan/scan"
+    "pages/scan/scan",
+    "pages/sell/sell"
   ],
   "window": {
     "backgroundTextStyle": "light",

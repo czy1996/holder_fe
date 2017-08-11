@@ -1,9 +1,6 @@
-<import src="/dist/quantity/index.wxml"/>
-
 <view class="container log-list">
     <view class="card">
-        <view bindtap="bindViewTap" class="book-card zan-card" wx:for="{{books}}" wx:for-index="idx" wx:for-item="book"
-              data-id="{{book.id}}" wx:key="id">
+        <view class="book-card zan-card">
             <view class="zan-card__thumb">
                 <image class="zan-card__img" mode="aspectFit" src="{{book.thumb}}" background-size="cover"></image>
             </view>
@@ -22,21 +19,17 @@
                     <view class="crossed zan-c-gray zan-card__left-col">原价 {{ book.first_price }}</view>
                 </view>
                 <view class="zan-card__detail-row">
-                    <view class="price zan-card__right-col">
-                        库存 {{book.inventory}}
-                        <view class="quantity">
-                            <template is="zan-quantity"
-                                      data="{{ quantity: book.quantity, min: 0, max: 5, componentId: idx, size: 'small'}}"/>
-
-                        </view>
-
-                    </view>
+                    <view class="price zan-card__right-col">库存 {{book.inventory}}</view>
                     <view class="zan-c-red zan-font-18 zan-card__left-col">￥ {{ book.second_price }}</view>
                 </view>
             </view>
         </view>
     </view>
+    <view class="description zan-panel">
+        <view class="zan-cell">简介</view>
+        <view class="zan-cell">{{book.description}}</view>
 
+    </view>
 
     <!--<view class="zan-panel">-->
     <!--<view class="zan-cell zan-cell&#45;&#45;access">-->
@@ -46,11 +39,7 @@
     <!--</view>-->
 
     <view class="fixed buttons zan-panel">
-        <!--<button class="zan-btn zan-btn&#45;&#45;large zan-btn&#45;&#45;primary">确认付款</button>-->
-        <!--<button class="zan-btn zan-btn&#45;&#45;large zan-btn&#45;&#45;warn">立即购买</button>-->
-        <!--<button class="btn-cart zan-btn zan-btn&#45;&#45;large zan-btn&#45;&#45;primary" bindtap="toCart">查看购物车</button>-->
-        <!--<button class="btn-cart zan-btn zan-btn&#45;&#45;large zan-btn&#45;&#45;warn" bindtap="addCart">加入购物车</button>-->
-        <button class="zan-btn zan-btn--large zan-btn--danger" bindtap="submitOrder">提交订单</button>
+        <button class="zan-btn zan-btn--large zan-btn--danger" bindtap="sellNow">确认卖出</button>
     </view>
 
 </view>

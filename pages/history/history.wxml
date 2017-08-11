@@ -7,7 +7,7 @@
 
             </view>
             <view class="zan-cell" wx:for="{{order.items}}" wx:for-item="item">
-                <view class="zan-cell__bd">{{item.title}}</view>
+                <view class="zan-cell__bd">{{order.orderType}} {{item.title}}</view>
                 <view class="zan-cell__ft">数量 {{item.quantity}}</view>
             </view>
         </view>

@@ -40,6 +40,29 @@ App({
                         util.log('login 接口调用失败')
                     }
                 })
+            },
+
+            complete: function () {
+                wx.login({
+                    success: function (res) {
+                        util.log(res.code)
+
+                        wx.request({
+                            url: testUrl + '/login',
+                            data: {
+                                code: res.code,
+                            },
+                            success: res => {
+                                util.log(res.data)
+                                wx.setStorageSync('session_id', res.data.session_id);
+                            }
+                        })
+
+                    },
+                    fail: function () {
+                        util.log('login 接口调用失败')
+                    }
+                })
             }
         })
     },
