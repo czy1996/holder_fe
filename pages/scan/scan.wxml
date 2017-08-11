@@ -1,0 +1,5 @@
+<view class="container">
+    <view>
+        <button class="vertical-center zan-btn zan-btn--warn" bindtap="scan">扫码卖书</button>
+    </view>
+</view>

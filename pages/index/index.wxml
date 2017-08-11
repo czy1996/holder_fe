@@ -49,14 +49,14 @@
             </view>
         </view>
         <!--<view style="margin-bottom: 10px">-->
-            <!--<template is="zan-tab" data="{{tab: tab, componentId: 'tab'}}"></template>-->
+        <!--<template is="zan-tab" data="{{tab: tab, componentId: 'tab'}}"></template>-->
         <!--</view>-->
     </view>
     <view style="margin-bottom: 94rpx"></view>
     <view class="cards-container">
         <block wx:for="{{books}}" wx:for-index="idx" wx:for-item="book"
-               data-id="{{book.id}}" wx:key="id">
-            <view bindtap="bindViewTap" class="book-card zan-card">
+               wx:key="id">
+            <view bindtap="bindViewTap" class="book-card zan-card" data-id="{{book.id}}">
                 <view class="zan-card__thumb">
                     <image class="zan-card__img" mode="aspectFit" src="{{book.thumb}}" background-size="cover"></image>
                 </view>
