@@ -13,24 +13,33 @@ App({
 
     login: function () {
         var self = this
-        wx.login({
-            success: function (res) {
-                util.log(res.code)
-
-                wx.request({
-                    url: testUrl + '/login',
-                    data: {
-                        code: res.code,
-                    },
-                    success: res => {
-                        util.log(res.data)
-                        wx.setStorageSync('session_id', res.data.session_id);
-                    }
-                })
-
+        wx.checkSession({
+            success: function () {
+                //session 未过期，并且在本生命周期一直有效
+                util.log('session 未过期')
             },
             fail: function () {
-                util.log('login 接口调用失败')
+                //登录态过期
+                wx.login({
+                    success: function (res) {
+                        util.log(res.code)
+
+                        wx.request({
+                            url: testUrl + '/login',
+                            data: {
+                                code: res.code,
+                            },
+                            success: res => {
+                                util.log(res.data)
+                                wx.setStorageSync('session_id', res.data.session_id);
+                            }
+                        })
+
+                    },
+                    fail: function () {
+                        util.log('login 接口调用失败')
+                    }
+                })
             }
         })
     },

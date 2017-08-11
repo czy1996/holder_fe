@@ -88,9 +88,8 @@ Page(Object.assign({}, Zan.Tab, {
                 }
             ],
             buttonClicked(index, item) {
-                index === 0 && wx.showModal({
-                    title: 'Thank you for your support!',
-                    showCancel: !1,
+                index === 0 && wx.navigateTo({
+                    url: '/pages/scan/scan'
                 })
 
                 index === 1 && wx.navigateTo({
