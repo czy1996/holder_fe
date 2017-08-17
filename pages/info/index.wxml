@@ -4,11 +4,12 @@
     <form bindsubmit="onSubmit">
         <view class="zan-form">
             <view class="zan-cell">请务必填写准确</view>
+            <view class="zan-cell zan-c-red">仅石大同学使用</view>
             <view class="zan-cell zan-form__item">
                 <text class="zan-form__title">收货人</text>
                 <input
                         class="zan-form__input zan-cell__bd"
-                        placeholder="名字"
+                        placeholder="{{name}}"
                         name="name"
                 />
             </view>
@@ -18,7 +19,7 @@
                         class="zan-form__input zan-cell__bd"
                         type="number"
                         maxlength="20"
-                        placeholder="手机"
+                        placeholder="{{phone}}"
                         name="phone"
                 />
             </view>

@@ -3,7 +3,7 @@
  */
 var {log} = require('../../utils/util.js')
 var {Api, Cart, User} = require('../../utils/api.js')
-var user  = new User()
+var user = new User()
 var Book = new Api('book')
 var cart = new Cart()
 var Zan = require('../../dist/index')
@@ -41,7 +41,7 @@ Page(Object.assign({}, Zan.Quantity, {
         })
     },
 
-    handleZanQuantityChange(e){
+    handleZanQuantityChange(e) {
         var id = e.componentId
         var quantity = e.quantity
         this.setData({
@@ -50,19 +50,26 @@ Page(Object.assign({}, Zan.Quantity, {
     },
 
     submitOrder(e) {
-        user.info(data => {
-            log(data)
+        user.getInfo(data => {
+            log(data, data.is_info)
+            if (!data.is_info) {
+                wx.navigateTo({
+                    url: '/pages/info/index'
+                })
+            } else {
+                this.updateCart()
+                var books = this.data.books
+                for (var i = 0; i < books.length; i++) {
+                    books[i].quantity = 0
+                }
+                cart.closeCart(data => {
+                    log('close', data)
+                    wx.redirectTo({
+                        url: '/pages/history/history'
+                    })
+                })
+            }
         })
-        this.updateCart()
-        var books = this.data.books
-        for (var i = 0; i < books.length; i++) {
-            books[i].quantity = 0
-        }
-        cart.closeCart(data => {
-            log('close', data)
-            wx.redirectTo({
-                url: '/pages/history/history'
-            })
-        })
+
     }
 }))

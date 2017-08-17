@@ -20,7 +20,7 @@ class Api {
         this.baseUrl = url + '/' + path
     }
 
-    get(path, callback) {
+    get (path, callback) {
         var url = this.baseUrl + path
         ajax('GET', url, '', function (r) {
             var data = r
@@ -131,9 +131,14 @@ class User extends Api {
         super('user')
     }
 
-    info(callback) {
-        var path = '/info'
+    getInfo(callback) {
+        var path = '/getInfo'
         this.get(path, callback)
+    }
+
+    updateInfo(data, callback) {
+        var path = '/updateInfo'
+        this.post(path, data, callback)
     }
 }
 
