@@ -2,11 +2,11 @@
  * Created by nicai on 2017/8/2.
  */
 //
-var {log} = require('../../utils/util.js')
-var {Api} = require('../../utils/api.js')
+let {log} = require('../../utils/util.js')
+let {Book} = require('../../utils/book')
 let {Cart} = require('../../utils/cart')
-var Book = new Api('book')
-var cart = new Cart()
+let book = new Book()
+let cart = new Cart()
 
 
 Page({
@@ -17,7 +17,7 @@ Page({
     onLoad: function (query) {
         log(query.id)
         var id = query.id
-        Book.getById(id, data => {
+        book.getById(id, data => {
             this.setData({book: data})
         })
     },

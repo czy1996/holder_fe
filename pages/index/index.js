@@ -1,14 +1,15 @@
 //index.js
 //获取应用实例
-var app = getApp()
+let app = getApp()
+let util = require('../../utils/util.js')
+let {Api} = require('../../utils/api.js')
+let {Book} = require('../../utils/book')
+let Zan = require('../../dist/index')
+let book = new Book()
 
-var util = require('../../utils/util.js')
-var {Api} = require('../../utils/api.js')
-var Zan = require('../../dist/index')
 
 import {$wuxButton} from '../../wux/components/wux'
 
-var book = new Api('book')
 
 console.log(util)
 

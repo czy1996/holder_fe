@@ -3,9 +3,9 @@
  */
 //
 var {log} = require('../../utils/util.js')
-var {Api} = require('../../utils/api.js')
+let {Book} = require('../../utils/book')
 let {Sell} = require('../../utils/sell')
-var book = new Api('book')
+var book = new Book()
 var sells = new Sell()
 
 

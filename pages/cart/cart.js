@@ -2,12 +2,11 @@
  * Created by nicai on 2017/8/6.
  */
 let {log} = require('../../utils/util.js')
-var {Api, User} = require('../../utils/api.js')
+let {User} = require('../../utils/api.js')
 let {Cart} = require('../../utils/cart')
-var user = new User()
-var Book = new Api('book')
-var cart = new Cart()
-var Zan = require('../../dist/index')
+let user = new User()
+let cart = new Cart()
+let Zan = require('../../dist/index')
 
 
 Page(Object.assign({}, Zan.Quantity, {

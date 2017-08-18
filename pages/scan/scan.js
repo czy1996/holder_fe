@@ -1,12 +1,12 @@
 /**
  * Created by nicai on 2017/8/11.
  */
-var {log, isValidISBN} = require('../../utils/util.js')
-var {Api} = require('../../utils/api.js')
+let {log, isValidISBN} = require('../../utils/util.js')
+let {Book} = require('../../utils/book')
 let {Sell} = require('../../utils/sell')
-var book = new Api('book')
-var sells = new Sell()
-var Zan = require('../../dist/index')
+let book = new Book()
+let sells = new Sell()
+let Zan = require('../../dist/index')
 
 Page(Object.assign({}, Zan.Quantity, {
     data: {
