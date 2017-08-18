@@ -2,8 +2,8 @@
  * Created by nicai on 2017/8/8.
  */
 var {log} = require('../../utils/util.js')
-var {Order} = require('../../utils/api.js')
-var order = new Order
+let {Order} = require('../../utils/order')
+let order = new Order()
 var Zan = require('../../dist/index');
 
 

@@ -38,20 +38,6 @@ class Api {
     }
 }
 
-
-class Order extends Api {
-    constructor() {
-        super('user')
-    }
-
-    all(callback) {
-        var path = '/getOrders'
-        this.get(path, callback)
-    }
-}
-
 module.exports = {
-    ajax: ajax,
     Api: Api,
-    Order: Order,
 }
