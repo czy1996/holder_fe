@@ -17,19 +17,24 @@ Page({
     onLoad: function (query) {
         log(query.id)
         var id = query.id
-        book.getById(id, data => {
-            this.setData({book: data})
-        })
+        this.updateBook(id)
+
     },
 
     addCart: function () {
         cart.add(this.data.book.id, (data) => {
             log('add cart', data)
-            if (data) {
+            if (data.success) {
                 log('toast', this.showZanToast)
                 wx.showToast({
                     title: '已加入购物车',
                     icon: 'success',
+                    duration: 2000
+                })
+            } else {
+                wx.showToast({
+                    title: '库存不够了',
+                    icon: 'fail',
                     duration: 2000
                 })
             }
@@ -49,6 +54,12 @@ Page({
                     url: '/pages/cart/cart'
                 })
             }
+        })
+    },
+
+    updateBook: function (id) {
+        book.getById(id, data => {
+            this.setData({book: data})
         })
     }
 })
