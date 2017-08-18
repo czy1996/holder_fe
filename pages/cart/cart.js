@@ -20,7 +20,7 @@ Page(Object.assign({}, Zan.Quantity, {
         books: []
     },
     onLoad: function () {
-        cart.getCart(books => {
+        cart.get_one(books => {
             this.setData({
                 books: books // TODO check max
             })
@@ -37,7 +37,7 @@ Page(Object.assign({}, Zan.Quantity, {
         for (var i = 0; i < books.length; i++) {
             data[String(books[i].id)] = books[i].quantity
         }
-        cart.updateCart(data, data => {
+        cart.update(data, data => {
             log(data)
         })
     },
@@ -63,7 +63,7 @@ Page(Object.assign({}, Zan.Quantity, {
                 for (var i = 0; i < books.length; i++) {
                     books[i].quantity = 0
                 }
-                cart.closeCart(data => {
+                cart.close(data => {
                     log('close', data)
                     wx.redirectTo({
                         url: '/pages/history/history'
