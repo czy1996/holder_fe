@@ -2,7 +2,7 @@
  * Created by nicai on 2017/8/6.
  */
 let {log} = require('../../utils/util.js')
-let {User} = require('../../utils/api.js')
+let {User} = require('../../utils/user')
 let {Cart} = require('../../utils/cart')
 let user = new User()
 let cart = new Cart()

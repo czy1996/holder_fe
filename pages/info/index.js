@@ -1,6 +1,6 @@
-var {log} = require('../../utils/util.js')
-var {User} = require('../../utils/api.js')
-var user = new User()
+let {log} = require('../../utils/util.js')
+let {User} = require('../../utils/user')
+let user = new User()
 
 Page({
     data: {
