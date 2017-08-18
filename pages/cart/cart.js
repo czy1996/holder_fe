@@ -1,8 +1,9 @@
 /**
  * Created by nicai on 2017/8/6.
  */
-var {log} = require('../../utils/util.js')
-var {Api, Cart, User} = require('../../utils/api.js')
+let {log} = require('../../utils/util.js')
+var {Api, User} = require('../../utils/api.js')
+let {Cart} = require('../../utils/cart')
 var user = new User()
 var Book = new Api('book')
 var cart = new Cart()

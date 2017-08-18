@@ -3,7 +3,8 @@
  */
 //
 var {log} = require('../../utils/util.js')
-var {Api, Cart} = require('../../utils/api.js')
+var {Api} = require('../../utils/api.js')
+let {Cart} = require('../../utils/cart')
 var Book = new Api('book')
 var cart = new Cart()
 
