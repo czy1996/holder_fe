@@ -44,6 +44,7 @@ Page(Object.assign({}, Zan.Tab, {
         },
         index: 3,
         opened: !1,
+        seachBarPplaceholder: "搜索",
     },
     //事件处理函数
     bindViewTap: function (event) {
@@ -126,7 +127,7 @@ Page(Object.assign({}, Zan.Tab, {
 
     showInput: function () {
         this.setData({
-            inputShowed: true
+            inputShowed: true,
         });
     },
     hideInput: function () {
@@ -153,5 +154,23 @@ Page(Object.assign({}, Zan.Tab, {
         this.setData({
             [`${componentId}.selectedId`]: selectedId
         });
+    },
+
+    inputConfirm: function (e) {
+        let title = e.detail.value
+        book.getByTitle(title, res => {
+            util.log(res)
+            if (res.status === 'ok') {
+                wx.showToast({
+                    title: '抱歉，没找着',
+                    icon: 'fail',
+                    duration: 2000
+                })
+            } else if (res.status === 'ok') {
+                this.setData({
+                    books: res.books
+                })
+            }
+        })
     }
 }))

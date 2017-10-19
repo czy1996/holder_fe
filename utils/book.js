@@ -29,6 +29,11 @@ class Book extends Api {
         var path = '/update/' + id
         this.post(path, data, callback)
     }
+
+    getByTitle(title, callback) {
+        let path = `/get?title=${title}`
+        this.get(path, callback)
+    }
 }
 
 module.exports = {

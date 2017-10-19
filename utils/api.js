@@ -7,7 +7,7 @@ var ajax = function (method, path, data, callback) {
         data: data,
         method: method,
         header: {
-            'Session_id': session_id
+            'Session-id': session_id
         },
         success: res => {
             callback(res.data)

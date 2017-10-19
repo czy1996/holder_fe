@@ -19,7 +19,8 @@ function formatNumber(n) {
 var log = console.log.bind(console)
 
 var localApi = 'http://localhost:5000'
-var testApi = 'http://123.206.65.14:5000'
+var testApi = 'https://cupbholdit.com'
+var portApi = 'http://123.206.65.14:5000'
 
 
 function isValidISBN(isbn) {
@@ -109,6 +110,6 @@ function isOddNumber(value) {
 module.exports = {
     formatTime: formatTime,
     log: log,
-    api: localApi,
+    api: testApi,
     isValidISBN: isValidISBN,
 }
