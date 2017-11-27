@@ -6,7 +6,8 @@ Page({
     data: {
         'name': '姓名',
         'phone': '手机',
-        'dorm': 'X-XXX'
+        'dorm': 'X-XXX',
+        'qq': 'XXXXXXXXX',
     },
 
     onLoad: function () {
@@ -14,7 +15,8 @@ Page({
             this.setData({
                 'name': data.name,
                 'phone': data.phone,
-                'dorm': data.dorm
+                'dorm': data.dorm,
+                'qq': data.QQ,
             })
         })
     },
@@ -23,16 +25,22 @@ Page({
     },
 
     onSubmit: function (event) {
-        var data = event.detail.value
+        let data = event.detail.value
         log(data, this.checkData(data))
         if (this.checkData(data)) {
             user.updateInfo(data, r => {
                 wx.navigateBack()
             })
+        } else {
+            wx.showToast({
+                title: '信息格式有误',
+                icon: 'fail',
+                duration: 2000
+            })
         }
     },
 
     checkData: data => {
-        return Boolean(data.phone && data.name && data.dorm)
+        return Boolean(data.phone && data.name && data.dorm && data.qq)
     }
 });

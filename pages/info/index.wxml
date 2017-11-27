@@ -3,13 +3,14 @@
     <view class="doc-title">个人资料</view>
     <form bindsubmit="onSubmit">
         <view class="zan-form">
-            <view class="zan-cell">请务必填写准确</view>
+            <view class="zan-cell">为方便联系，请务必填写准确。我们将优先通过 QQ 联系。</view>
             <view class="zan-cell zan-c-red">仅石大同学使用</view>
             <view class="zan-cell zan-form__item">
                 <text class="zan-form__title">收货人</text>
                 <input
                         class="zan-form__input zan-cell__bd"
                         placeholder="{{name}}"
+                        value="{{name}}"
                         name="name"
                 />
             </view>
@@ -20,15 +21,26 @@
                         type="number"
                         maxlength="20"
                         placeholder="{{phone}}"
+                        value="{{phone}}"
                         name="phone"
                 />
             </view>
-            <view class="zan-cell zan-form__item zan-cell--last-child">
+            <view class="zan-cell zan-form__item">
                 <text class="zan-form__title">宿舍</text>
                 <input
                         class="zan-form__input zan-cell__bd"
                         placeholder="X-XXX"
                         name="dorm"
+                        value="{{dorm}}"
+                />
+            </view>
+            <view class="zan-cell zan-form__item zan-cell--last-child">
+                <text class="zan-form__title">QQ</text>
+                <input
+                        class="zan-form__input zan-cell__bd"
+                        placeholder="QQ"
+                        name="qq"
+                        value="{{qq}}"
                 />
             </view>
             <view class="btn-area">

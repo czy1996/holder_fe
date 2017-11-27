@@ -1,0 +1,20 @@
+<view class="container">
+
+    <view class="doc-title">ISBN 号卖书</view>
+    <form bindsubmit="onSubmit">
+        <view class="zan-form">
+            <view class="zan-cell">通常位于条码上方 形如 9787802562547</view>
+            <view class="zan-cell zan-form__item zan-cell--last-child">
+                <text class="zan-form__title">isbn</text>
+                <input
+                        class="zan-form__input zan-cell__bd"
+                        placeholder=""
+                        name="isbn"
+                />
+            </view>
+            <view class="btn-area">
+                <button class="btn-submit zan-btn zan-btn--large zan-btn--primary" formType="submit">保存</button>
+            </view>
+        </view>
+    </form>
+</view>

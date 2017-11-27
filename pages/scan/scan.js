@@ -23,7 +23,7 @@ Page(Object.assign({}, Zan.Quantity, {
     },
 
 
-    scan(){
+    scan() {
         wx.scanCode({
             success: (res) => {
                 log(res)
@@ -32,9 +32,17 @@ Page(Object.assign({}, Zan.Quantity, {
                         'isbn': res.result
                     }, data => {
                         log(data)
-                        wx.redirectTo({
-                            url: '/pages/sell/sell' + `?id=${data.id}`
-                        })
+                        if (data.filled) {
+                            wx.redirectTo({
+                                url: '/pages/sell/sell' + `?id=${data.id}`
+                            })
+                        } else {
+                            wx.showToast({
+                                title: '条码有误，建议重扫',
+                                icon: 'fail',
+                                duration: 2000
+                            })
+                        }
                     })
 
                 }
@@ -42,6 +50,12 @@ Page(Object.assign({}, Zan.Quantity, {
             fail: () => {
                 log('scan fail')
             }
+        })
+    },
+    
+    isbnInput() {
+        wx.navigateTo({
+          url: '/pages/isbn/isbn'
         })
     },
 
@@ -60,7 +74,7 @@ Page(Object.assign({}, Zan.Quantity, {
         })
     },
 
-    handleZanQuantityChange(e){
+    handleZanQuantityChange(e) {
         var id = e.componentId
         var quantity = e.quantity
         this.setData({

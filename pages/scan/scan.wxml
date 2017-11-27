@@ -47,7 +47,7 @@
 
     <view class="fixed buttons zan-panel">
         <button class="zan-btn zan-btn--large zan-btn--warn" bindtap="scan">扫码添加</button>
-
+        <button class="zan-btn zan-btn--large zan-btn--primary" bindtap="isbnInput">输入ISBN添加</button>
         <button class="zan-btn zan-btn--large zan-btn--danger" bindtap="submitOrder">提交</button>
     </view>
 
