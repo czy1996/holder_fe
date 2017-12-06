@@ -16,6 +16,7 @@ console.log(util)
 Page(Object.assign({}, Zan.Tab, {
     data: {
         books: {},
+        keyword: '',
         inputShowed: false,
         inputVal: "",
         tab: {
@@ -62,11 +63,12 @@ Page(Object.assign({}, Zan.Tab, {
 
     onShow() {
         var that = this
+        this.setData({inputVal: ''})
         //调用应用实例的方法获取全局数据
         book.all(data => {
             util.log(data)
             that.setData({
-                books: data.filter(b => b.filled),
+                books: data.filter(this.searchBookFilter),
                 results: data
             })
         })
@@ -148,6 +150,9 @@ Page(Object.assign({}, Zan.Tab, {
         this.setData({
             inputVal: e.detail.value
         });
+        this.setData({
+            books: this.data.results.filter(this.searchBookFilter)
+        })
     },
 
     handleZanTabChange(e) {
@@ -160,20 +165,27 @@ Page(Object.assign({}, Zan.Tab, {
     },
 
     inputConfirm: function (e) {
-        let title = e.detail.value
-        book.getByTitle(title, res => {
-            util.log(res)
-            if (res.status === 'ok') {
-                this.setData({
-                    books: res.books
-                })
-            } else if (res.status === 'no') {
-                wx.showToast({
-                    title: '抱歉，没找着',
-                    icon: 'fail',
-                    duration: 2000
-                })
-            }
+        // let title = e.detail.value
+        // book.getByTitle(title, res => {
+        //     util.log(res)
+        //     if (res.status === 'ok') {
+        //         this.setData({
+        //             books: res.books
+        //         })
+        //     } else if (res.status === 'no') {
+        //         wx.showToast({
+        //             title: '抱歉，没找着',
+        //             icon: 'fail',
+        //             duration: 2000
+        //         })
+        //     }
+        // })
+        this.setData({
+            books: this.data.results.filter(this.searchBookFilter)
         })
+    },
+
+    searchBookFilter(b) {
+        return b.filled && b.title.indexOf(this.data.inputVal) > -1
     }
 }))
